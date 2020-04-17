@@ -85,7 +85,7 @@ class PetugasController extends Controller
         $validator = Validator::make($req->all(),
         [
             'nama_petugas' => 'required|string|max:255',
-            'telp' => 'required|string|max:255',
+            'alamat_petugas' => 'required|string|max:255',
             'username' => 'required|string|max:255',
             'password' => 'required|string|min:3|confirmed',
             'level' => 'required|string|max:255',
@@ -97,7 +97,7 @@ class PetugasController extends Controller
 
         $ubah = User::where('id', $id)->update([
             'nama_petugas' =>$req->nama_petugas,
-            'telp' => $request->get('telp'),
+            'alamat_petugas' => $req->get('alamat_petugas'),
             'username' =>$req->username,
             'password' =>Hash::make($req->get('password')),
             'level' =>$req->level,
